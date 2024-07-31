@@ -13,6 +13,10 @@ header.masthead {
 header.masthead .overlay {
   background: transparent;
 }
+.page-heading h1,
+.subheading {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* horizontal offset, vertical offset, blur radius, color */
+}
 #mainNav {
   background: #000;
   opacity: 0.6;
