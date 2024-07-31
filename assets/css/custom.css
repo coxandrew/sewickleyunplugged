@@ -1,0 +1,29 @@
+header.masthead {
+  background-image: url('/assets/images/girls-in-tree.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* No repeating */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white; /* Text color */
+  position: relative;
+}
+header.masthead .overlay {
+  background: transparent;
+}
+#mainNav {
+  background: #000;
+  opacity: 0.6;
+
+  .navbar-brand,
+  .navbar-toggler {
+    color: white;
+  }
+  .navbar-nav {
+    .nav-link {
+      color: #fff;
+    }
+  }
+}
