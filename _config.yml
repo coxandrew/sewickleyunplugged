@@ -28,7 +28,7 @@ twitter_username: jekyllrb
 github_username:  coxandrew
 
 # Build settings
-theme: jekyll-theme-clean-blog
+# theme: jekyll-theme-clean-blog
 plugins:
   - jekyll-feed
 
