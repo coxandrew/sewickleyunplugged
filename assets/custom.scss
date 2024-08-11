@@ -29,6 +29,12 @@ header.masthead {
   color: white; /* Text color */
   position: relative;
 }
+@media only screen and (min-width: 768px) {
+  header.masthead {
+    background-position: top;
+  }
+}
+
 header.masthead .overlay {
   background: transparent;
 }
@@ -36,10 +42,8 @@ header.masthead .overlay {
 .subheading {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* horizontal offset, vertical offset, blur radius, color */
 }
-header.masthead .page-heading .subheading {
-  margin-bottom: 30px;
-  font-size: 28px;
-  font-weight: 400;
+header.masthead .page-heading h1 {
+  font-size: 40px;
 }
 header.masthead .page-heading,
 header.masthead .site-heading {
@@ -48,4 +52,16 @@ header.masthead .site-heading {
   padding: 20px;
   margin-top: 100px;
   margin-bottom: 80px;
+}
+header.masthead .page-heading .subheading {
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+@media only screen and (min-width: 992px) {
+  header.masthead .page-heading h1 {
+    font-size: 60px;
+  }
+  header.masthead .page-heading .subheading {
+    font-size: 28px;
+  }
 }
