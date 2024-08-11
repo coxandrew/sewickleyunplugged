@@ -31,7 +31,7 @@ header.masthead {
 }
 @media only screen and (min-width: 768px) {
   header.masthead {
-    background-position: top;
+    background-position: 0 15%;
   }
 }
 
@@ -47,11 +47,14 @@ header.masthead .page-heading h1 {
 }
 header.masthead .page-heading,
 header.masthead .site-heading {
+  padding: 20px;
+  margin-top: 120px;
+  margin-bottom: 60px;
+}
+header.home .page-heading,
+header.home .site-heading {
   text-align: left;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  margin-top: 100px;
-  margin-bottom: 80px;
 }
 header.masthead .page-heading .subheading {
   margin-bottom: 30px;
