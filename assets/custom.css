@@ -1,4 +1,4 @@
-// Nav
+/* Nav */
 
 #mainNav {
   background: #000;
@@ -15,7 +15,7 @@
   }
 }
 
-// Home
+/* Home */
 
 header.masthead {
   background-image: url('/assets/images/girls-in-tree.jpg'); /* Replace with your image URL */
@@ -69,12 +69,13 @@ header.masthead .page-heading .subheading {
   }
 }
 
-// Goals
+/* Goals */
+
 .goals-list li {
   margin: 30px 0;
 }
 
-// Misc
+/* Misc */
 
 p a.btn {
   text-decoration: none;
