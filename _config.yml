@@ -20,7 +20,7 @@
 
 title: Sewickley Unplugged
 description: >- # this means to ignore newlines until "baseurl:"
-  Sewickley Unplugged is an organized group of parents, children, and community members who are dedicated to reducing screen time and increasing outdoor play in Sewickley, PA.
+  Sewickley Unplugged is a group of parents, children, and community members who are dedicated to reducing screen time and increasing outdoor play in Sewickley.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.sewickleyunplugged.org" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -28,6 +28,9 @@ url: "https://www.sewickleyunplugged.org" # the base hostname & protocol for you
 # theme: jekyll-theme-clean-blog
 plugins:
   - jekyll-feed
+
+sass:
+  sass_dir: _sass
 
 # Exclude from processing.
 # The following items will not be processed, by default.

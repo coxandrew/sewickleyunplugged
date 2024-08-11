@@ -1,3 +1,22 @@
+// Nav
+
+#mainNav {
+  background: #000;
+  opacity: 0.6;
+
+  .navbar-brand,
+  .navbar-toggler {
+    color: white;
+  }
+  .navbar-nav {
+    .nav-link {
+      color: #fff;
+    }
+  }
+}
+
+// Home
+
 header.masthead {
   background-image: url('/assets/images/girls-in-tree.jpg'); /* Replace with your image URL */
   background-size: cover; /* Cover the entire container */
@@ -17,17 +36,16 @@ header.masthead .overlay {
 .subheading {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* horizontal offset, vertical offset, blur radius, color */
 }
-#mainNav {
-  background: #000;
-  opacity: 0.6;
-
-  .navbar-brand,
-  .navbar-toggler {
-    color: white;
-  }
-  .navbar-nav {
-    .nav-link {
-      color: #fff;
-    }
-  }
+header.masthead .page-heading .subheading {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 400;
+}
+header.masthead .page-heading,
+header.masthead .site-heading {
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin-top: 100px;
+  margin-bottom: 80px;
 }
