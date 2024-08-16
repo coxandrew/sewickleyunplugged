@@ -12,10 +12,10 @@ curl -L -o "$DOWNLOAD_PATH" "$SHEET_URL"
 cd "$REPO_PATH" || exit
 
 # Add the file to the git index
-git add "$DESTINATION_PATH"
+git add "$DOWNLOAD_PATH"
 
 # Create a new commit
 git commit -m "Update families.csv with the latest data"
 
 # Push the commit to the master branch
-# git push origin master
+git push origin master
