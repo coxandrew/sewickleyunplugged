@@ -22,6 +22,7 @@ title: Resources
 * [JoinMama.org Expert Insights](https://www.joinmama.org/expertinsightsseries)
 * [Jonathan Haidt & Bari Weiss](https://podcasts.apple.com/us/podcast/smartphones-rewired-childhood-heres-how-to-fix-it/id1570872415?i=1000650431219), Honestly Podcast
 * [What Jonathan Haidt Gets Right & Wrong](https://podcasts.apple.com/us/podcast/what-jonathan-haidt-gets-right-and-wrong/id1576221880?i=1000657379356), This Is So Awkward Podcast
+* [Status Update](https://www.thisamericanlife.org/573/transcript?fbclid=IwY2xjawExXutleHRuA2FlbQIxMQABHcjWBqYJge9c89DsrsvH0gWjaMpLVUdAMNlqMUauAFRA9wi05oxLFKbH-g_aem_NHrRVPba75YqaWu2gTO8WA), This American Life
 
 ### Articles
 
@@ -29,4 +30,3 @@ title: Resources
 * [Why I Changed My Mind About Cellphones In The Classroom](https://www.edweek.org/technology/opinion-why-i-changed-my-mind-about-cellphones-in-the-classroom/2024/07?fbclid=IwY2xjawExXXpleHRuA2FlbQIxMQABHcCMbKopopMLTvZD4IkPt7uVVVMVM6TN4jhum5uzxuLdFAQzJ2QdZCxYLA_aem_w67w-aNyKxOuRy5fcXrcZg), EdWeek.org, July 2024
 * [She Was Studying Social Media Before TikTok Even Existed PittWire](https://www.pitt.edu/pittwire/pittmagazine/features-articles/sophia-choukas-bradley-nsf-social-media-research?utm_medium=email&utm_campaign=0611+Juneteenth+round-up+knitting+Sophia+Choukas-Bradley+NSF&utm_content=0611+Juneteenth+round-up+knitting+Sophia+Choukas-Bradley+NSF+CID_3793af85ce7af4aca4971e2d5266c63e&utm_source=CM+Pittwire&utm_term=Chouklas-Bradley+in+front+of+screens+displaying+social+media+logos&fbclid=IwY2xjawExXf9leHRuA2FlbQIxMQABHYnZ7JK1UPDXDBiGwAKTWNxS5ax--OjCeTHWmnvr4emvsvKxf4ugh-1Okw_aem_7l-ersTbE2kyzCKTtBwwuQ), June 2024
 * [The Terrible Costs of A Phone-Based Childhood](https://www.theatlantic.com/technology/archive/2024/03/teen-childhood-smartphone-use-mental-health-effects/677722/), The Atlantic, March 2024
-* [Status Update](https://www.thisamericanlife.org/573/transcript?fbclid=IwY2xjawExXutleHRuA2FlbQIxMQABHcjWBqYJge9c89DsrsvH0gWjaMpLVUdAMNlqMUauAFRA9wi05oxLFKbH-g_aem_NHrRVPba75YqaWu2gTO8WA), This American Life
