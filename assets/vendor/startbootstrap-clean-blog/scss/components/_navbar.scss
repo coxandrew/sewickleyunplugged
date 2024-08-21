@@ -18,6 +18,12 @@
         color: $gray-800;
     }
 
+    .navbar-collapse.show {
+        .nav-item:hover {
+            background: #eee;
+        }
+    }
+
     .navbar-nav {
         >li.nav-item {
             >a {
@@ -26,6 +32,7 @@
                 letter-spacing: 1px;
                 text-transform: uppercase;
             }
+
         }
     }
 
@@ -47,11 +54,11 @@
             >li.nav-item {
                 >a {
                     padding: 10px 20px;
-                    color: $white;
+                    color: #000;
 
                     &:focus,
                     &:hover {
-                        color: fade-out($white, .2);
+                        color: fade-out(#000, .2);
                     }
                 }
             }

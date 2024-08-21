@@ -1,16 +1,29 @@
 /* Nav */
 
 #mainNav {
-  background: #000;
-  opacity: 0.6;
+  background: #fff;
+
+  .navbar-brand img {
+    height: 45px;
+  }
 
   .navbar-brand,
   .navbar-toggler {
-    color: white;
+    color: #000;
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: #000;
+    }
   }
   .navbar-nav {
-    .nav-link {
-      color: #fff;
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      color: #000;
     }
   }
 }
