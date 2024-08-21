@@ -1,3 +1,12 @@
+/* Breakpoints */
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px
+// ) !default;
+
 /* General */
 
 body {
@@ -11,6 +20,9 @@ h5,
 h6 {
     margin-top: 20px;
     font-weight: 700;
+}
+.main li {
+  margin: 1rem 0;
 }
 @media only screen and (min-width: 768px) {
   body {
@@ -54,7 +66,7 @@ a {
 /* Home */
 
 header.masthead {
-  background-image: url('/assets/images/girls-tree-1-web.jpg'); /* Replace with your image URL */
+  background-image: url('/assets/images/girls-tree-1-web.jpg');
   background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* No repeating */
@@ -66,10 +78,10 @@ header.masthead {
   position: relative;
   margin-bottom: 20px;
 }
+header.masthead.page {
+  background-image: url('/assets/images/girls-creek.jpg');
+}
 @media only screen and (min-width: 768px) {
-  header.masthead {
-    // background-position: 50% 0;
-  }
   #mainNav .navbar-brand img {
     height: 45px;
   }
@@ -156,4 +168,7 @@ header.masthead .page-heading .subheading {
 
 p a.btn {
   text-decoration: none;
+}
+.sources {
+  font-size: 16px;
 }
