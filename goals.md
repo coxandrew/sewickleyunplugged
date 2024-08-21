@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Common Goals
-permalink: /goals/
+title: Goals
 ---
 
 <ol class="goals-list">
