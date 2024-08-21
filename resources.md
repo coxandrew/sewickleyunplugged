@@ -7,6 +7,16 @@ title: Resources
 
 * [Dumb Wireless](https://dumbwireless.com/): Find a low-tech phone for your kid.
 
+### Downloads / Printables
+
+* <a href="/assets/images/zero-screen-best-practice.png" target="_blank">Zero Screen Best Practice</a>
+* <a href="/assets/images/phone-etiquette.png" target="_blank">Phone Etiquette</a>
+* <a href="/assets/images/create-vs-consume.png" target="_blank">Create vs. Consume</a>
+* <a href="/assets/images/digital-downgrade.png" target="_blank">Digital Downgrade</a>
+* <a href="/assets/images/does-my-kid-need-a-phone-flowchart.png" target="_blank">Does My Kid Need a Phone Flowchart</a>
+* <a href="/assets/images/how-to-approach-a-digital-detox.png" target="_blank">How to Approach a Digital Detox</a>
+* <a href="/assets/images/no-phone-fill-the-void.png" target="_blank">No Phone? Fill the Void</a>
+
 ### Podcasts / Videos
 
 * [JoinMama.org Expert Insights](https://www.joinmama.org/expertinsightsseries)
