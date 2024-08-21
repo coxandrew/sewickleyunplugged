@@ -6,6 +6,21 @@ layout: home
 title: Home
 ---
 
+# We Believe
+
+<div class="container">
+  <div class="row">
+    <ul class="we-believe">
+      <li>Technology is a good thing when used intentionally and with purpose</li>
+      <li>Childhood is being stolen by screen time</li>
+      <li>Kids grow best from real life play and from time spent with people</li>
+      <li>The longer we wait to give children devices, the healthier they will be</li>
+      <li>Schools should be places to learn, not marketplaces for tech companies</li>
+      <li>Teachers should focus on teaching and kids should focus on learning</li>
+    </ul>
+  </div>
+</div>
+
 # Sewickley Unplugged Commitment
 
 > As a family, we commit to waiting until at least 9th grade to give our child(ren) a smart phone and delay access to social media until 11th grade. Prior to high school, we will explore "[talk and text](https://dumbwireless.com/)" only devices for communication needs.

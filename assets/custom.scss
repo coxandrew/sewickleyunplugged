@@ -1,11 +1,21 @@
 /* General */
+
+body {
+  font-size: 16px;
+}
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+    margin-top: 20px;
     font-weight: 700;
+}
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 20px;
+  }
 }
 
 /* Nav */
@@ -51,6 +61,7 @@ header.masthead {
   text-align: center;
   color: white; /* Text color */
   position: relative;
+  margin-bottom: 20px;
 }
 @media only screen and (min-width: 768px) {
   header.masthead {
@@ -95,6 +106,13 @@ header.home .site-heading {
 header.masthead .page-heading .subheading {
   margin-bottom: 30px;
   font-weight: 400;
+}
+.we-believe {
+  // margin-bottom: 40px;
+
+  li {
+    margin: 10px 0;
+  }
 }
 .unplugged-families {
   background: #444;
