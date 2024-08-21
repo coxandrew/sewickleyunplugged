@@ -6,7 +6,7 @@ layout: home
 title: Home
 ---
 
-## Sewickley Unplugged Commitment
+# Sewickley Unplugged Commitment
 
 > As a family, we commit to waiting until at least 9th grade to give our child(ren) a smart phone and delay access to social media until 11th grade. Prior to high school, we will explore "[talk and text](https://dumbwireless.com/)" only devices for communication needs.
 >

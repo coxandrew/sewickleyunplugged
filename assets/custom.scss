@@ -1,3 +1,13 @@
+/* General */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
 /* Nav */
 
 #mainNav {
@@ -31,7 +41,7 @@
 /* Home */
 
 header.masthead {
-  background-image: url('/assets/images/girls-in-tree.jpg'); /* Replace with your image URL */
+  background-image: url('/assets/images/girls-tree-1.jpg'); /* Replace with your image URL */
   background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* No repeating */
@@ -51,9 +61,19 @@ header.masthead {
 header.masthead .overlay {
   background: transparent;
 }
-.page-heading h1,
-.subheading {
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* horizontal offset, vertical offset, blur radius, color */
+.page-heading {
+  h1 {
+    font-weight: 600;
+  }
+  h4 {
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  h1,
+  .subheading {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* horizontal offset, vertical offset, blur radius, color */
+  }
 }
 header.masthead .page-heading h1 {
   font-size: 40px;
@@ -61,7 +81,7 @@ header.masthead .page-heading h1 {
 header.masthead .page-heading,
 header.masthead .site-heading {
   padding: 20px;
-  margin-top: 120px;
+  margin-top: 140px;
   margin-bottom: 60px;
 }
 header.home .page-heading,
