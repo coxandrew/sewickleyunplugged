@@ -80,12 +80,27 @@ header.masthead {
 }
 header.masthead.page {
   background-image: url('/assets/images/girls-creek.jpg');
+  background-position: center;
+}
+@media only screen and (min-width: 576px) {
+  header.masthead.page {
+    // background-position: 0 -100px;
+  }
 }
 @media only screen and (min-width: 768px) {
   #mainNav .navbar-brand img {
     height: 45px;
   }
+  header.masthead.page {
+    // background-position: 0 -160px;
+  }
 }
+@media only screen and (min-width: 992px) {
+  header.masthead.page {
+    background-position: 0 -140px;
+  }
+}
+
 
 header.masthead .overlay {
   background: transparent;
