@@ -11,3 +11,9 @@ bundle exec jekyll serve
 ```
 code $(bundle info --path jekyll-theme-clean-blog)
 ```
+
+## Trigger manual update from CSV
+
+```
+./update_families.csv
+```
