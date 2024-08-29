@@ -111,7 +111,7 @@ title: Home
 
         {% assign child_array = child_list | split: "|" %}
 
-        {% assign school_year_order = "Kindergarten,1st Grade,2nd Grade,3rd Grade,4th Grade,5th Grade,6th Grade,7th Grade,8th Grade,9th Grade,10th Grade,11th Grade,12th Grade" | split: "," %}
+        {% assign school_year_order = "Preschool,Kindergarten,1st Grade,2nd Grade,3rd Grade,4th Grade,5th Grade,6th Grade,7th Grade,8th Grade,9th Grade,10th Grade,11th Grade,12th Grade" | split: "," %}
 
         {% assign sorted_children = "" %}
         {% for year in school_year_order %}
@@ -139,7 +139,7 @@ title: Home
           {% endif %}
         {% endfor %}
 
-        {% if sorted_children.last != "Kindergarten" %}
+        {% if sorted_children.last != "Kindergarten" and sorted_children.last != "Preschool" %}
           {% assign children = children | append: " grade" %}
         {% endif %}
 
