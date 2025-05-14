@@ -31,7 +31,25 @@ title: Home
 >
 > As stakeholders in our community, we support free-roam childhoods and screen-free experiences. Businesses will offer access to phones and camps, clubs, and activities are encouraged to keep devices away.
 
-<a class="btn btn-primary" href="https://forms.gle/W4hoVLB4qVczjRJs6" target="_blank">Sign the Commitment</a>
+<div class="signup-form">
+  <h3>Join Our Community</h3>
+  <form id="emailForm" onsubmit="submitForm(event)">
+    <div class="form-group">
+      <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+</div>
+
+<div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <strong class="me-auto">Success</strong>
+    <button type="button" class="btn-close" onclick="dismissToast()" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    Thank you for signing up!
+  </div>
+</div>
 
 <div class="unplugged-families">
   {% assign committed_families = site.data.families | where_exp: "family", "family['Commitment Agreement'] contains 'I commit'" %}
@@ -165,5 +183,53 @@ title: Home
             }
         }
     }
+}
+
+function showToast() {
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+}
+
+function dismissToast() {
+  const toast = document.getElementById('toast');
+  toast.classList.remove('show');
+}
+
+async function submitForm(event) {
+  event.preventDefault();
+
+  const email = document.getElementById('email').value;
+  const submitButton = document.querySelector('button[type="submit"]');
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwZ24nUKRBqBwU_mY_IYwl2tqtzNqodmaLPHEZdUHv0gCEPOht2GxeR1BujgQ0nffYe/exec';
+
+  try {
+    // Disable the submit button
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
+
+    console.log('Submitting form with email:', email);
+    const formData = new FormData();
+    formData.append('email', email);
+
+    const response = await fetch(scriptURL, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors',
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    console.log('Response received:', response);
+    document.getElementById('emailForm').reset();
+    showToast();
+  } catch (error) {
+    console.error('Error details:', error);
+    showToast();
+  } finally {
+    // Re-enable the submit button
+    submitButton.disabled = false;
+    submitButton.textContent = 'Sign Up';
+  }
 }
 </script>
