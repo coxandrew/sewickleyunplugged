@@ -132,16 +132,17 @@ title: Home
 <hr>
 
 <div class="unplugged-families">
-  {% assign committed_families = site.data.families | where_exp: "family", "family['Commitment Agreement'] contains 'I commit'" %}
+  {% assign committed_families = site.data.supporters | where_exp: "supporter", "supporter['Commitment Status'] contains 'committed'" %}
+  {% assign families_by_name = committed_families | group_by: "Parent/Guardian Name" %}
 
   <h1>Unplugged Families</h1>
-  <h2>{{ committed_families.size }} Sewickley families have committed to delay smart phones and social media</h2>
+  <h2>{{ families_by_name.size }} Sewickley families have committed to delay smart phones and social media</h2>
 
   <section class="grade-group">
       <div class="grade-filter">
           <select id="grade-filter" class="form-select" onchange="filterFamilies()">
               <option value="all">Show All Families</option>
-              <option value="grade-kindergarten">Kindgergarten</option>
+              <option value="grade-kindergarten">Kindergarten</option>
               <option value="grade-1st">1st Grade</option>
               <option value="grade-2nd">2nd Grade</option>
               <option value="grade-3rd">3rd Grade</option>
@@ -158,90 +159,113 @@ title: Home
       </div>
   </section>
 
-  {% for family in committed_families %}
+  {% assign sorted_families = families_by_name | sort: "name" %}
+  {% for family in sorted_families %}
     {% assign class_names = "family" %}
+    {% assign children = family.items | sort: "Graduation Year" %}
 
-    {% if family["(1st Child) School Year"] %}
-      {% assign grade = family["(1st Child) School Year"] | downcase | replace: " grade", "" %}
-      {% assign class_names = class_names | append: " grade-" | append: grade %}
-    {% endif %}
+    {% for child in children %}
+      {% assign graduation_year = child["Graduation Year"] | plus: 0 %}
+      {% assign current_year = 2024 %}
+      {% assign years_until_graduation = graduation_year | minus: current_year %}
+      {% assign grade_number = 12 | minus: years_until_graduation | plus: 1 %}
 
-    {% if family["(2nd Child) School Year"] %}
-      {% assign grade = family["(2nd Child) School Year"] | downcase | replace: " grade", "" %}
-      {% assign class_names = class_names | append: " grade-" | append: grade %}
-    {% endif %}
+      {% case grade_number %}
+        {% when 0 %}
+          {% assign grade = "Kindergarten" %}
+        {% when 1 %}
+          {% assign grade = "1st" %}
+        {% when 2 %}
+          {% assign grade = "2nd" %}
+        {% when 3 %}
+          {% assign grade = "3rd" %}
+        {% when 4 %}
+          {% assign grade = "4th" %}
+        {% when 5 %}
+          {% assign grade = "5th" %}
+        {% when 6 %}
+          {% assign grade = "6th" %}
+        {% when 7 %}
+          {% assign grade = "7th" %}
+        {% when 8 %}
+          {% assign grade = "8th" %}
+        {% when 9 %}
+          {% assign grade = "9th" %}
+        {% when 10 %}
+          {% assign grade = "10th" %}
+        {% when 11 %}
+          {% assign grade = "11th" %}
+        {% when 12 %}
+          {% assign grade = "12th" %}
+        {% else %}
+          {% assign grade = "Preschool" %}
+      {% endcase %}
 
-    {% if family["(3rd Child) School Year"] %}
-      {% assign grade = family["(3rd Child) School Year"] | downcase | replace: " grade", "" %}
-      {% assign class_names = class_names | append: " grade-" | append: grade %}
-    {% endif %}
-
-    {% if family["(4th Child) School Year"] %}
-      {% assign grade = family["(4th Child) School Year"] | downcase | replace: " grade", "" %}
-      {% assign class_names = class_names | append: " grade-" | append: grade %}
-    {% endif %}
-
-    {% if family["(5th Child) School Year"] %}
-      {% assign grade = family["(5th Child) School Year"] | downcase | replace: " grade", "" %}
-      {% assign class_names = class_names | append: " grade-" | append: grade %}
-    {% endif %}
+      {% assign class_names = class_names | append: " grade-" | append: grade | downcase %}
+    {% endfor %}
 
     <div class="{{ class_names }}">
       <div class="parents">
-        <!-- Cox Family -->
-        {{ family['Parent/Guardian Name(s)'] }}
+        {{ family.name }}
       </div>
       <div class="students">
-        <!-- Kindergartener, 2nd & 6th grader @ Sewickley Academy -->
-        {% assign children = "" %}
-        {% assign child1 = family["(1st Child) School Year"] %}
-        {% assign child2 = family["(2nd Child) School Year"] %}
-        {% assign child3 = family["(3rd Child) School Year"] %}
-        {% assign child4 = family["(4th Child) School Year"] %}
-        {% assign child5 = family["(5th Child) School Year"] %}
-
-        {% assign child_list = "" %}
-        {% if child1 %} {% assign child_list = child_list | append: child1 | append: "|" %} {% endif %}
-        {% if child2 %} {% assign child_list = child_list | append: child2 | append: "|" %} {% endif %}
-        {% if child3 %} {% assign child_list = child_list | append: child3 | append: "|" %} {% endif %}
-        {% if child4 %} {% assign child_list = child_list | append: child4 | append: "|" %} {% endif %}
-        {% if child5 %} {% assign child_list = child_list | append: child5 | append: "|" %} {% endif %}
-
-        {% assign child_array = child_list | split: "|" %}
-
-        {% assign school_year_order = "Preschool,Kindergarten,1st Grade,2nd Grade,3rd Grade,4th Grade,5th Grade,6th Grade,7th Grade,8th Grade,9th Grade,10th Grade,11th Grade,12th Grade" | split: "," %}
-
-        {% assign sorted_children = "" %}
-        {% for year in school_year_order %}
-          {% for child in child_array %}
-            {% if child == year %}
-              {% assign year_without_grade = year | replace: " Grade", "" %}
-              {% assign sorted_children = sorted_children | append: year_without_grade | append: "|" %}
-            {% endif %}
-          {% endfor %}
-        {% endfor %}
-        {% assign sorted_children = sorted_children | split: "|" %}
-
-        {% assign child_count = sorted_children.size %}
+        {% assign child_count = children.size %}
         {% assign second_to_last_index = child_count | minus: 1 %}
 
-        {% for child in sorted_children %}
-          {% if forloop.last and child_count > 1 %}
-            {% assign children = children | append: " & " | append: child %}
-          {% elsif forloop.last %}
-            {% assign children = children | append: child %}
-          {% elsif forloop.index < second_to_last_index %}
-            {% assign children = children | append: child | append: ", " %}
-          {% else %}
-            {% assign children = children | append: child %}
+        {% for child in children %}
+          {% assign graduation_year = child["Graduation Year"] | plus: 0 %}
+          {% assign current_year = 2024 %}
+          {% assign years_until_graduation = graduation_year | minus: current_year %}
+          {% assign grade_number = 12 | minus: years_until_graduation | plus: 1 %}
+
+          {% case grade_number %}
+            {% when 0 %}
+              {% assign grade = "Kindergarten" %}
+            {% when 1 %}
+              {% assign grade = "1st" %}
+            {% when 2 %}
+              {% assign grade = "2nd" %}
+            {% when 3 %}
+              {% assign grade = "3rd" %}
+            {% when 4 %}
+              {% assign grade = "4th" %}
+            {% when 5 %}
+              {% assign grade = "5th" %}
+            {% when 6 %}
+              {% assign grade = "6th" %}
+            {% when 7 %}
+              {% assign grade = "7th" %}
+            {% when 8 %}
+              {% assign grade = "8th" %}
+            {% when 9 %}
+              {% assign grade = "9th" %}
+            {% when 10 %}
+              {% assign grade = "10th" %}
+            {% when 11 %}
+              {% assign grade = "11th" %}
+            {% when 12 %}
+              {% assign grade = "12th" %}
+            {% else %}
+              {% assign grade = "Preschool" %}
+          {% endcase %}
+
+          {% if grade != "Kindergarten" and grade != "Preschool" %}
+            {% assign grade = grade | append: " grade" %}
           {% endif %}
+
+          {% if forloop.last and child_count > 1 %}
+            {% assign grade = " & " | append: grade %}
+          {% elsif forloop.last %}
+            {% assign grade = grade %}
+          {% elsif forloop.index == second_to_last_index %}
+            {% assign grade = grade %}
+          {% else %}
+            {% assign grade = grade | append: ", " %}
+          {% endif %}
+
+          {{ grade }}
         {% endfor %}
-
-        {% if sorted_children.last != "Kindergarten" and sorted_children.last != "Preschool" %}
-          {% assign children = children | append: " grade" %}
-        {% endif %}
-
-        {{ children }} @ {{ family['School(s)'] }}
+        @ {% assign districts = children | map: "District" | uniq | join: ", " %}{{ districts }}
       </div>
     </div>
   {% endfor %}
