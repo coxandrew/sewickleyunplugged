@@ -13,4 +13,4 @@ Unify as parents so our kids can enjoy a large and thriving phone-free group of 
 
 ## Phone-Free Schools
 
-Collaborate to encourage all Sewickley-area schools to become completely personal electronic device and social media free.
+Collaborate to encourage all PA schools to become completely personal electronic device and social media free.
