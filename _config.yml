@@ -18,11 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Sewickley Unplugged
+title: PA Unplugged
 description: >- # this means to ignore newlines until "baseurl:"
-  Sewickley Unplugged is a group of parents, children, and community members who are dedicated to reducing screen time and increasing outdoor play in Sewickley.
+  PA Unplugged is a group of parents, children and community members dedicated to supporting healthy relationships with technology and encouraging outdoor play in communities throughout Pennsylvania.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.sewickleyunplugged.org" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.paunplugged.org" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 # theme: jekyll-theme-clean-blog

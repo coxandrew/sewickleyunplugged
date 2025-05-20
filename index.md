@@ -136,7 +136,7 @@ title: Home
   {% assign families_by_name = committed_families | group_by: "Parent/Guardian Name" %}
 
   <h1>Unplugged Families</h1>
-  <h2>{{ families_by_name.size }} Sewickley families have committed to delay smart phones and social media</h2>
+  <h2>{{ families_by_name.size }} Pennsylvania families have committed to delay smart phones and social media</h2>
 
   <section class="grade-group">
       <div class="grade-filter">
@@ -212,6 +212,7 @@ title: Home
         {% assign child_count = children.size %}
         {% assign second_to_last_index = child_count | minus: 1 %}
 
+        {% assign unique_grades = "" | split: "" %}
         {% for child in children %}
           {% assign graduation_year = child["Graduation Year"] | plus: 0 %}
           {% assign current_year = 2024 %}
@@ -253,17 +254,22 @@ title: Home
             {% assign grade = grade | append: " grade" %}
           {% endif %}
 
-          {% if forloop.last and child_count > 1 %}
-            {% assign grade = " & " | append: grade %}
-          {% elsif forloop.last %}
-            {% assign grade = grade %}
-          {% elsif forloop.index == second_to_last_index %}
-            {% assign grade = grade %}
-          {% else %}
-            {% assign grade = grade | append: ", " %}
-          {% endif %}
+          {% unless unique_grades contains grade %}
+            {% assign unique_grades = unique_grades | push: grade %}
+          {% endunless %}
+        {% endfor %}
 
-          {{ grade }}
+        {% assign unique_grades_count = unique_grades.size %}
+        {% for grade in unique_grades %}
+          {% if forloop.last and unique_grades_count > 1 %}
+            & {{ grade }}
+          {% elsif forloop.last %}
+            {{ grade }}
+          {% elsif forloop.index < unique_grades_count | minus: 1 %}
+            {{ grade }},
+          {% else %}
+            {{ grade }} &
+          {% endif %}
         {% endfor %}
         @ {% assign districts = children | map: "District" | uniq | join: ", " %}{{ districts }}
       </div>
@@ -367,112 +373,4 @@ function addChild() {
   yearSelect.innerHTML = `
     <option value="">Select Graduation Year</option>
     ${years.map(year => `<option value="${year}">${year}</option>`).join('')}
-  `;
-
-  // Create county select
-  const countySelect = document.createElement('select');
-  countySelect.className = 'form-select county-select';
-  countySelect.id = `county${childNumber}`;
-  countySelect.name = 'county[]';
-  countySelect.required = true;
-  countySelect.onchange = function() { updateDistricts(this); };
-  countySelect.innerHTML = `
-    <option value="">Select County</option>
-    <option value="Allegheny">Allegheny County</option>
-    <option value="Beaver">Beaver County</option>
-    <option value="Delaware">Delaware County</option>
-  `;
-
-  // Create district select
-  const districtSelect = document.createElement('select');
-  districtSelect.className = 'form-select district-select';
-  districtSelect.id = `district${childNumber}`;
-  districtSelect.name = 'district[]';
-  districtSelect.required = true;
-  districtSelect.disabled = true;
-  districtSelect.innerHTML = '<option value="">Select District</option>';
-
-  // Create form groups with labels
-  const yearGroup = document.createElement('div');
-  yearGroup.className = 'form-group';
-  const yearLabel = document.createElement('label');
-  yearLabel.htmlFor = `graduationYear${childNumber}`;
-  yearLabel.textContent = 'Graduation Year';
-  yearGroup.appendChild(yearLabel);
-  yearGroup.appendChild(yearSelect);
-
-  const countyGroup = document.createElement('div');
-  countyGroup.className = 'form-group';
-  const countyLabel = document.createElement('label');
-  countyLabel.htmlFor = `county${childNumber}`;
-  countyLabel.textContent = 'County';
-  countyGroup.appendChild(countyLabel);
-  countyGroup.appendChild(countySelect);
-
-  const districtGroup = document.createElement('div');
-  districtGroup.className = 'form-group';
-  const districtLabel = document.createElement('label');
-  districtLabel.htmlFor = `district${childNumber}`;
-  districtLabel.textContent = 'School District';
-  districtGroup.appendChild(districtLabel);
-  districtGroup.appendChild(districtSelect);
-
-  // Add all elements to child entry
-  childEntry.appendChild(headerDiv);
-  childEntry.appendChild(yearGroup);
-  childEntry.appendChild(countyGroup);
-  childEntry.appendChild(districtGroup);
-
-  container.appendChild(childEntry);
-}
-
-async function submitForm(event) {
-  event.preventDefault();
-
-  const parentName = document.getElementById('parentName').value;
-  const email = document.getElementById('email').value;
-  const publicName = document.querySelector('input[name="publicName"]:checked').value;
-  const commitment = document.querySelector('input[name="commitment"]:checked').value;
-  const children = Array.from(document.getElementsByClassName('child-entry')).map(entry => ({
-    graduationYear: entry.querySelector('[name="graduationYear[]"]').value,
-    county: entry.querySelector('[name="county[]"]').value,
-    district: entry.querySelector('[name="district[]"]').value
-  }));
-
-  const submitButton = document.querySelector('button[type="submit"]');
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxDbhEnDbo6_etgJzfDR-yX28qm5-QrJK8D3mM3VTDConkRNFhs74UjOhK8JdiI8rAb/exec';
-
-  try {
-    submitButton.disabled = true;
-    submitButton.textContent = 'Submitting...';
-
-    console.log('Submitting form with email:', email);
-    const formData = new FormData();
-    formData.append('parentName', parentName);
-    formData.append('email', email);
-    formData.append('publicName', publicName);
-    formData.append('commitment', commitment);
-    formData.append('children', JSON.stringify(children));
-    formData.append('timestamp', new Date().toISOString());
-
-    const response = await fetch(scriptURL, {
-      method: 'POST',
-      body: formData,
-      mode: 'no-cors',
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
-
-    console.log('Response received:', response);
-    document.getElementById('emailForm').reset();
-    showToast();
-  } catch (error) {
-    console.error('Error details:', error);
-    showToast();
-  } finally {
-    submitButton.disabled = false;
-    submitButton.textContent = 'Sign Up';
-  }
-}
-</script>
+  `
